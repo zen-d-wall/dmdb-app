@@ -15,6 +15,6 @@ In order to offer all the content in an organized and well performing way, I mak
 
 ## Source
 
-All the data and content seeing in the DMDB app comes from The Movie Databse (TMDB) API.
+All the data and content seeing in the DMDB app comes from The Movie Databse (TMDB) API: https://developer.themoviedb.org/reference/intro/getting-started
 
 
