@@ -1,4 +1,4 @@
-# IT DOESN'T SUPPORT MOBILE YET!
+# IT DOESN'T SUPPORT MOBILE YET! (W.I.P)
 
 # Getting Started with Create React App
 
