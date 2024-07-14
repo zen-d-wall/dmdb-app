@@ -97,9 +97,11 @@ const style = {
 	p: 4
 };
 
+
 export default function StartModal() {
 	const { genres, setGenres, isModalOpen, setIsModalOpen, theme, language } = useUserPreferences();
 	const [modalSelectedGenres, setModalSelectedGenres] = useState<Array<GenreOption>>(genres);
+	const disabled = !!(modalSelectedGenres.length < 3 || modalSelectedGenres.length > 5);
 
 	function handleGenreSelection(checked: boolean, selectedGenre: Genre) {
 		if (checked === true) {
@@ -153,8 +155,8 @@ export default function StartModal() {
 
 							<div className="items-center justify-center flex">
 								<button
-									disabled={!!(modalSelectedGenres.length < 3 || modalSelectedGenres.length > 5)}
-									className={'rounded-lg bg-slate-900 text-white w-1/3'}
+									disabled={disabled}
+									className={disabled == true ? 'rounded-lg bg-gray-300 text-white w-1/3' : 'rounded-lg bg-slate-900 text-white w-1/3'}
 									key={`akey-${modalSelectedGenres.length}`}
 									onClick={() => handleGenreSelectionButton()}
 								>

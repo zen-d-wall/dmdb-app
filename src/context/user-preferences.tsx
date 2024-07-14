@@ -28,7 +28,7 @@ export default function UserPreferencesProvider({ children }: any) {
 
 	const [language, setLanguage] = useState<Languages>(getLanguageFromLocalStorage());
 	const [theme, setTheme] = useState<ThemeContent>(themeOption[getThemeFromLocalStorage()]);
-	const [genres, setGenres] = useState<Array<GenreOption>>(JSON.parse(localStorageGenres !== null ? localStorageGenres : '[{ "id": 0, "name": "" }]'));
+	const [genres, setGenres] = useState<Array<GenreOption>>(JSON.parse(localStorageGenres !== null ? localStorageGenres : '[]'));
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
 	return (
