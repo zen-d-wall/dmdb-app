@@ -1,17 +1,15 @@
 import { LANGUAGES } from '../../i18n/translations';
 import MoviesGrid from './movies-grid';
-import StartModal from '../start-modal';
 import { useUserPreferences } from '../../context/user-preferences';
 import { GenreOption } from '../../types/context.types';
 import { LoadingPage } from '../loading-page';
 
 export function HomePage() {
 
-	const { language, theme, genres, isModalOpen } = useUserPreferences();
+	const { language, theme, genres } = useUserPreferences();
 
 	const localStorageGenres = localStorage.getItem('genre-select');
 
-	console.log('localStorageGenres');
 	return (
 		<div className={`${theme.themeBgClassName} ${theme.themeTextClassName} h-100`}>
 			{!genres.length ? (

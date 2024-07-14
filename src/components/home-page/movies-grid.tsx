@@ -6,7 +6,6 @@ import { Genre, MoviesGridParams } from '../../types/movies-grid.types';
 import { MoviesInformation, ResultType } from '../../types/homepage.types';
 import { useUserPreferences } from '../../context/user-preferences';
 import { MoviesGridService } from './service';
-import { LoadingPage } from '../loading-page';
 
 const mockGenres: Array<Genre> = [
 	{
@@ -127,17 +126,16 @@ export default function MoviesGrid({ genre, type }: Readonly<MoviesGridParams>) 
 
 	return (
 		<>
-			{movies.results.length && genres.length ? (
+			{movies.results.length && genres.length && (
 				<>
-					<div className={`flex justify-center text-xl font-bold pt-4 ${theme.themeTextClassName} border-solid border-t-2 ${theme.border}` }>
-
+					<div className={`flex justify-center text-xl font-bold pt-4 ${theme.themeTextClassName} border-solid border-t-2 ${theme.border}`}>
 						{renderTitle()}
 					</div>
 					<div className="grid grid-cols-4 gap-9 object-cover p-7 pt-3">
 						{limitGrid().map((movie: ResultType) => {
 							return (
 								<Link to={`/movie/${movie.id}`} key={movie.id} accessKey="abc">
-									<MovieProfile pictureUrl={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} title={movie.title} releaseDate={movie.release_date} overview={movie.overview}/>
+									<MovieProfile pictureUrl={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} title={movie.title} releaseDate={movie.release_date} overview={movie.overview} />
 								</Link>
 							);
 						})}
@@ -145,9 +143,7 @@ export default function MoviesGrid({ genre, type }: Readonly<MoviesGridParams>) 
 							<LoadMoreButton open={open} onClick={handleLoadMoreButton} />
 						</div>
 					</div>
-				</> 
-			) : (
-				<LoadingPage/>
+				</>
 			)}
 		</>
 	);
